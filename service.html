@@ -1,0 +1,730 @@
+<html lang="en">
+
+<head>
+    <script src="https://codesandbox.io/p/preview-protocol.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="module" src="main.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .service-section {
+            background-image: url('img/anh_nen_service.jpg');
+            /* Replace with actual background */
+            background-size: cover;
+            background-position: center;
+            max-height: 400px;
+            color: #ffffff;
+            margin-top: 80px;
+
+        }
+
+
+        .service-content {
+            justify-content: space-between;
+            padding: 80px 0;
+            display: flex;
+            text-align: left;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .service-content h2 {
+            font-size: 45px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .service-content p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            max-width: 700px;
+        }
+
+        .btn-service {
+            display: inline-block;
+            padding: 12px 24px;
+            border: 2px solid #fff;
+            border-radius: 25px;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .btn-service:hover {
+            background-color: #fff;
+            color: #000;
+        }
+
+
+
+        .why-choose-section {
+            padding: 60px 20px;
+            text-align: center;
+            background: #fff;
+        }
+
+        .why-title {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #002e4d;
+            margin-bottom: 40px;
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            justify-content: center;
+            align-items: stretch;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .why-card {
+            background: #fefefe;
+            border-radius: 16px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            padding: 30px 20px;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-top: 4px solid #fb4c4c;
+        }
+
+        .why-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .why-icon {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 20px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .journey img.logo {
+            max-width: 150px;
+        }
+
+        .journey .album .album_item {
+            display: grid;
+            grid-template-columns: repeat(4, auto);
+            gap: 10px;
+        }
+
+        .journey .album .album_item img {
+            border-radius: 5px;
+        }
+
+        .journey .contact-btn {
+            color: #F65F65;
+            border: 2px solid #F65F65;
+            margin-top: 30px;
+            padding: 20px 40px;
+        }
+
+        .journey .contact-btn:hover {
+            scale: 1.07;
+        }
+
+        .why-text {
+            font-size: 0.95rem;
+            color: #000;
+            line-height: 1.4;
+        }
+
+        .future-section {
+            background-color: #002c44;
+            padding: 60px 20px;
+            color: #fff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .future-box {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .future-text {
+            flex: 1 1 50%;
+        }
+
+        .future-text h3 {
+            font-size: 30px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        .future-text p {
+            font-size: 15px;
+            color: #d4e0e7;
+            margin-bottom: 30px;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: 0.3s ease-in-out;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background-color: #ff4b4b;
+            color: #fff;
+        }
+
+        .btn-primary i {
+            padding-left: 5px;
+        }
+
+        .btn-primary:hover {
+            background-color: #d93636;
+        }
+
+        .btn-secondary {
+            background-color: #fff;
+            color: #002c44;
+        }
+
+        .btn-secondary:hover {
+            background-color: #e6e6e6;
+        }
+
+        .future-image {
+            flex: 1 1 30%;
+            text-align: center;
+        }
+
+        .future-image img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+
+
+        .left {
+            flex: 1;
+            padding-right: 40px;
+        }
+
+        .breadcrumb {
+            font-size: 14px;
+            color: #888;
+            margin-bottom: 20px;
+        }
+
+        .lr .title {
+            font-size: 30px;
+            font-weight: bold;
+            line-height: 1.4;
+        }
+
+        .lr .title .highlight {
+            color: #f26474;
+        }
+
+        .description {
+            margin-top: 20px;
+            font-size: 16px;
+            color: #000;
+            line-height: 1.6;
+        }
+
+        .right {
+            flex: 1;
+        }
+
+        .image-box {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .image-box img {
+            width: 100%;
+            display: block;
+            height: auto;
+        }
+
+        .image-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-weight: bold;
+            font-size: 22px;
+            text-align: center;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+        }
+
+        section.service_1 {
+            padding: 30px 0;
+        }
+
+        section.service_1 .lr {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        @media (max-width: 768px) {
+            .future-section {
+                padding: 30px 0px;
+            }
+
+            .service-content {
+                flex-direction: column;
+                padding: 45px 0;
+                gap: 5px;
+                justify-content: center;
+
+            }
+
+            .service-content .content {
+                text-align: center;
+            }
+
+            section.service_1 .lr {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+
+            .services {
+                padding: 20px 0;
+            }
+
+            .future-text h3 {
+                font-size: 24px;
+            }
+
+            .future-text .button-group {
+                flex-direction: column;
+            }
+
+            .future-text .button-group .btn {
+                text-align: center;
+            }
+
+            .future-box {
+                flex-direction: column;
+            }
+
+            .service-content h2 {
+                font-size: 38px;
+            }
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <nav style="box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 10px;">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="img/logo.png" alt="#">
+            </a>
+            <div class="nav-wrapper">
+                <div class="nav-links">
+                    <a href="about_us.html">About Us</a>
+                    <div class="dropdown">
+                        <a href="#">Services</a>
+                        <div class="dropdown-content">
+                            <a href="service.html">Services 1</a>
+                            <a href="service_2.html">Services 2</a>
+                            <a href="service_3.html">Services 3</a>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <a href="#">Solutions</a>
+                        <div class="dropdown-content">
+                            <a href="solution.html">Solutions 1</a>
+                            <a href="solution_2.html">solutions 2</a>
+                            <a href="solution_3.html">solutions 3</a>
+                        </div>
+                    </div>
+                    <a href="#">Partnerships</a>
+                    <a href="#">Community</a>
+                </div>
+            </div>
+
+            <div class="bt_lg">
+                <button class="contact-btn"><a href="contact.html">Contact</a></button>
+                <div class="language">
+                    <i class="fa-solid fa-globe"></i>
+                </div>
+            </div>
+
+
+            <div class="menu-toggle">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+    <!-- Overlay mờ -->
+    <div class="mobile-menu-overlay"></div>
+    <!-- Off-canvas mobile menu -->
+    <div class="mobile-menu">
+        <div class="mobile-menu-header">
+            <span class="close-mobile-menu">&times;</span>
+        </div>
+        <div class="mobile-menu-links">
+            <a href="about_us.html">About Us</a>
+
+            <div class="mobile-dropdown">
+                <div class="mobile-dropdown-toggle">Services <i class="fa-solid fa-chevron-down"></i></div>
+                <div class="mobile-dropdown-menu">
+                    <a href="service.html">Services 1</a>
+                    <a href="service_2.html">Services 2</a>
+                    <a href="service_3.html">Services 3</a>
+                </div>
+            </div>
+
+            <div class="mobile-dropdown">
+                <div class="mobile-dropdown-toggle">Solutions <i class="fa-solid fa-chevron-down"></i></div>
+                <div class="mobile-dropdown-menu">
+                    <a href="solution.html">Solutions 1</a>
+                    <a href="solution_2.html">Solutions 2</a>
+                    <a href="solution_3.html">Solutions 3</a>
+                </div>
+            </div>
+
+            <a href="#">Partnerships</a>
+            <a href="#">Community</a>
+            <button class="contact-btn"><a href="contact.html">Contact</a></button>
+            <!-- <a href="contact.html">Contact</a> -->
+        </div>
+    </div>
+
+    <section class="service-section">
+        <div class="service-overlay container">
+            <div class="service-content ">
+                <h2>Our Services</h2>
+                <div class="content">
+                    <p>
+                        Delivering Reliable & Scalable Software Engineering Services. At ABIM, we
+                        provide tailored software engineering solutions that help industrial businesses
+                        streamline operations, boost productivity, and accelerate growth.
+                    </p>
+                    <a href="#" class="btn-service">Contact Us Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="service_1">
+        <div class="container">
+            <div class="breadcrumb">Services / E-Bidding Platform</div>
+            <div class="lr">
+                <div class="left">
+                    <div class="title">
+                        <span class="highlight">Tailor-made Software</span> to<br>
+                        Power Your Business
+                    </div>
+                    <div class="description">
+                        We develop custom web and mobile<br>
+                        applications that match your exact<br>
+                        business workflows.
+                    </div>
+                </div>
+
+                <div class="right">
+                    <div class="image-box">
+                        <img src="img/anh_nguoi.png" alt="Application Software Development">
+                        <div class="image-text">
+                            Application Software<br>Development
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <section class="services" id="services">
+        <div class="container">
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Application Software Development</h3>
+                    <p>Custom software solutions designed for your specific needs</p>
+                    <a href="#" class="learn-more" style="gap: 8px;"><span class="arrow"><i
+                                class="fa-solid fa-arrow-right"></i></span></a>
+                </div>
+                <div class="service-card">
+                    <h3>Software Testing Services</h3>
+                    <p>Comprehensive testing to ensure quality and reliability</p>
+                    <a href="#" class="learn-more" style="gap: 8px;"><span class="arrow"><i
+                                class="fa-solid fa-arrow-right"></i></span></a>
+                </div>
+                <div class="service-card">
+                    <h3>Digital Transformation</h3>
+                    <p>Modernize your business with cutting-edge technology</p>
+                    <a href="#" class="learn-more" style="gap: 8px;"><span class="arrow"><i
+                                class="fa-solid fa-arrow-right"></i></span></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="tech-stack">
+        <div class="container">
+            <h2 class="section-title">Our Tech Capabilities</h2>
+            <p style="color: #999; margin-bottom: 32px;">At ABIM Software, we craft software solutions tailored to each
+                client's unique needs — that’s why our developers are well-versed in a broad spectrum of technology
+                stacks.</p>
+        </div>
+        <div class="tech-slider">
+            <div class="tech-grid">
+                <div class="tech-item"><i class="fa-solid fa-circle"></i> React</div>
+                <div class="tech-item"><i class="fa-solid fa-circle"></i> Node.js</div>
+                <div class="tech-item"><i class="fa-solid fa-circle"></i> Python</div>
+                <div class="tech-item"><i class="fa-solid fa-circle"></i> TypeScript</div>
+                <div class="tech-item"><i class="fa-solid fa-circle"></i> AWS</div>
+                <div class="tech-item"><i class="fa-solid fa-circle"></i> Docker</div>
+                <div class="tech-item"><i class="fa-solid fa-circle"></i> Kubernetes</div>
+                <div class="tech-item"><i class="fa-solid fa-circle"></i> MongoDB</div>
+                <div class="tech-item"><i class="fa-solid fa-circle"></i> PostgreSQL</div>
+                <div class="tech-item"><i class="fa-solid fa-circle"></i> Redis</div>
+                <div class="tech-item"><i class="fa-solid fa-circle"></i> GraphQL</div>
+                <div class="tech-item"><i class="fa-solid fa-circle"></i> REST API</div>
+
+                <div class="tech-item"><i class="fa-solid fa-circle"></i> React</div>
+                <div class="tech-item"><i class="fa-solid fa-circle"></i> Node.js</div>
+                <div class="tech-item"><i class="fa-solid fa-circle"></i> Python</div>
+                <div class="tech-item"><i class="fa-solid fa-circle"></i> TypeScript</div>
+                <div class="tech-item"><i class="fa-solid fa-circle"></i> AWS</div>
+                <div class="tech-item"><i class="fa-solid fa-circle"></i> Docker</div>
+                <div class="tech-item"><i class="fa-solid fa-circle"></i> Kubernetes</div>
+                <div class="tech-item"><i class="fa-solid fa-circle"></i> MongoDB</div>
+                <div class="tech-item"><i class="fa-solid fa-circle"></i> PostgreSQL</div>
+                <div class="tech-item"><i class="fa-solid fa-circle"></i> Redis</div>
+                <div class="tech-item"><i class="fa-solid fa-circle"></i> GraphQL</div>
+                <div class="tech-item"><i class="fa-solid fa-circle"></i> REST API</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="why-choose-section">
+        <h2 class="why-title">Why Choose ABIM</h2>
+        <div class="why-grid">
+            <div class="why-card">
+                <img src="https://i.pravatar.cc/100?img=2" alt="icon" class="why-icon">
+                <p class="why-text">Deep experience in industrial procurement and supply chain systems</p>
+            </div>
+            <div class="why-card">
+                <img src="https://i.pravatar.cc/100?img=2" alt="icon" class="why-icon">
+                <p class="why-text">Proven experience with digital transformation for manufacturers</p>
+            </div>
+            <div class="why-card">
+                <img src="https://i.pravatar.cc/100?img=2" alt="icon" class="why-icon">
+                <p class="why-text">Agile development teams tailored to your project size and goals</p>
+            </div>
+            <div class="why-card">
+                <img src="https://i.pravatar.cc/100?img=2" alt="icon" class="why-icon">
+                <p class="why-text">Long-term partnership approach with responsive support</p>
+            </div>
+            <div class="why-card">
+                <img src="https://i.pravatar.cc/100?img=2" alt="icon" class="why-icon">
+                <p class="why-text">Integration-ready systems compatible with leading ERP platforms</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="client">
+        <div class="container">
+            <h2 class="section-title">Our clients</h2>
+            <div class="client-grid">
+
+                <div class="client-item">
+                    <img src="img/Logo-Yody.webp" alt="logo">
+                </div>
+                <div class="client-item">
+                    <img src="img/Logo-Yody.webp" alt="logo">
+                </div>
+                <div class="client-item">
+                    <img src="img/Logo-Yody.webp" alt="logo">
+                </div>
+                <div class="client-item">
+                    <img src="img/Logo-Yody.webp" alt="logo">
+                </div>
+                <div class="client-item">
+                    <img src="img/Logo-Yody.webp" alt="logo">
+                </div>
+                <div class="client-item">
+                    <img src="img/Logo-Yody.webp" alt="logo">
+                </div>
+
+
+            </div>
+        </div>
+
+    </section>
+
+
+    <section class="future-section">
+        <div class="container">
+            <div class="future-box">
+                <div class="future-text">
+                    <h3>🔷 Let’s Build the Future of<br>Procurement Together</h3>
+                    <p>
+                        Whether you're starting your digital journey or scaling up an existing
+                        system, ABIM is here to help you succeed.
+                    </p>
+                    <div class="button-group">
+                        <a href="#" class="btn btn-primary">Contact Us <i class="fa-solid fa-arrow-right"></i></a>
+                        <a href="#" class="btn btn-secondary">Meet Our Services <i
+                                class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="future-image">
+                    <img src="img/anh_nguoi.png" alt="Handshake">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="address">
+        <div class="container">
+            <div class="contact-bar">
+                <div class="contact-info">
+                    <div class="item">
+                        <i class="fa-solid fa-phone"></i>
+                        <div>
+                            <div class="title">0123456789</div>
+                            <div class="desc">Hotline 24/7</div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <i class="fa-solid fa-envelope"></i>
+                        <div>
+                            <div class="title">support@mail.com</div>
+                            <div class="desc">Free consult</div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <div>
+                            <div class="title">De La Thanh, O Cho Dua</div>
+                            <div class="desc">Dong Da, Ha Noi</div>
+                        </div>
+                    </div>
+                    <a href="#" class="contact-button">
+                        GET IN TOUCH <i class="fa-solid fa-chevron-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="#" class="logo">
+                        <img src="img/logo.png" alt="">
+                    </a>
+                    <p style="color: #000; margin: 24px 0;">Leading software solutions provider for industrial
+                        excellence</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z">
+                                </path>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link">
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z">
+                                </path>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link">
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z">
+                                </path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Pages</h3>
+                    <ul>
+                        <li><a href="#"><i class="fa-solid fa-chevron-right"></i>Home</a></li>
+                        <li><a href="#about"><i class="fa-solid fa-chevron-right"></i>About Us</a></li>
+                        <li><a href="#services"><i class="fa-solid fa-chevron-right"></i>Services</a></li>
+                        <li><a href="#contact"><i class="fa-solid fa-chevron-right"></i>Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#"><i class="fa-solid fa-chevron-right"></i>Software Development</a></li>
+                        <li><a href="#"><i class="fa-solid fa-chevron-right"></i>Testing Services</a></li>
+                        <li><a href="#"><i class="fa-solid fa-chevron-right"></i>Digital Transformation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><a href="#"><i class="fa-solid fa-chevron-right"></i>Software Development</a></li>
+                        <li><a href="#"><i class="fa-solid fa-chevron-right"></i>Testing Services</a></li>
+                        <li><a href="#"><i class="fa-solid fa-chevron-right"></i>Digital Transformation</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                Copyright 2024 © ABIM Software. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+
+
+
+</body>
+
+</html>
