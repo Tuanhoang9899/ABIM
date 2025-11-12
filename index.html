@@ -1,409 +1,310 @@
-<html lang="en">
-
+<!DOCTYPE html>
+<html lang="vi">
 <head>
-    <script src="https://codesandbox.io/p/preview-protocol.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ABIM - Software Development Company</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
-    <link rel="stylesheet" type="text/css"
-        href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script type="module" src="main.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Gas Cố Đô Huế - An Toàn, Nhanh Chóng, Chất Lượng</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <style>
+        /* === 1. BIẾN VÀ THIẾT LẬP CHUNG === */
+        :root {
+            --primary-color: #007bff; /* Xanh dương chủ đạo */
+            --secondary-color: #ff9900; /* Cam/Vàng (Năng lượng) */
+            --text-dark: #333333;
+            --text-light: #ffffff;
+            --bg-light: #f8f9fa;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        /* === 2. HEADER VÀ THANH ĐIỀU HƯỚNG === */
+        header {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: 10px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: var(--secondary-color);
+            text-decoration: none;
+        }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* === 3. KHU VỰC HERO (CALL TO ACTION) === */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('placeholder-gas-image.jpg') no-repeat center center/cover;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 40px;
+        }
+
+        /* Gợi ý: Thay 'placeholder-gas-image.jpg' bằng URL ảnh thực tế */
+        .hero h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+
+        .btn-cta {
+            background-color: var(--secondary-color);
+            color: var(--text-dark);
+            padding: 12px 30px;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.2s;
+            display: inline-block;
+        }
+
+        .btn-cta:hover {
+            background-color: #ffb84d;
+            transform: translateY(-2px);
+        }
+
+        /* === 4. KHU VỰC DỊCH VỤ / ƯU ĐIỂM === */
+        .services-grid {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 30px;
+            text-align: center;
+        }
+
+        .service-item {
+            background-color: var(--text-light);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+            flex: 1 1 300px; /* Responsive size */
+            transition: transform 0.3s;
+        }
+
+        .service-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .icon {
+            font-size: 3em;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        /* === 5. FOOTER VÀ THÔNG TIN LIÊN HỆ === */
+        footer {
+            background-color: var(--text-dark);
+            color: var(--bg-light);
+            padding: 40px 0;
+            margin-top: 50px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .contact-info, .zalo-section {
+            flex: 1 1 45%;
+        }
+
+        .zalo-section p {
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+            font-weight: 600;
+        }
+
+        .qr-placeholder {
+            width: 100px;
+            height: 100px;
+            background-color: var(--text-light);
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-dark);
+            font-size: 0.8em;
+        }
+
+        /* === 6. RESPONSIVE DỄ NHÌN TRÊN DI ĐỘNG === */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav {
+                margin-top: 10px;
+            }
+
+            nav a {
+                margin: 0 10px;
+                display: inline-block;
+            }
+
+            .hero {
+                height: 40vh;
+            }
+
+            .hero h1 {
+                font-size: 2em;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .zalo-section {
+                order: -1; /* Đưa Zalo lên đầu trên mobile */
+            }
+
+            .qr-placeholder {
+                margin: 0 auto;
+            }
+        }
+    </style>
 </head>
-
 <body>
-       <nav style="box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 10px;">
-        <div class="container nav-container">
-            <a href="index.html" class="logo">
-                <img src="img/logo.png" alt="#">
-            </a>
-            <div class="nav-wrapper">
-                <div class="nav-links">
-                    <a href="about_us.html">About Us</a>
-                    <div class="dropdown">
-                        <a href="#">Services</a>
-                        <div class="dropdown-content">
-                            <a href="service.html">Services 1</a>
-                            <a href="service_2.html">Services 2</a>
-                            <a href="service_3.html">Services 3</a>
-                        </div>
-                    </div>
-                    <div class="dropdown">
-                        <a href="#">Solutions</a>
-                        <div class="dropdown-content">
-                            <a href="solution.html">Solutions 1</a>
-                            <a href="solution_2.html">solutions 2</a>
-                            <a href="solution_3.html">solutions 3</a>
-                        </div>
-                    </div>
-                     <a href="partnerships.html">Partnerships</a>
-                    <a href="community.html">Community</a>
-                </div>
+
+<header>
+    <div class="container navbar">
+        <a href="#home" class="logo">GAS CỐ ĐÔ HUẾ</a>
+        <nav>
+            <a href="#home">Trang Chủ</a>
+            <a href="#services">Dịch Vụ</a>
+            <a href="#contact">Liên Hệ</a>
+        </nav>
+    </div>
+</header>
+
+<section id="home" class="hero">
+    <div class="container">
+        <h1>GAS AN TOÀN - GIAO HÀNG SIÊU TỐC</h1>
+        <p>Dịch vụ đổi gas uy tín hàng đầu tại Huế. Cam kết đủ trọng lượng, bảo hiểm chất lượng.</p>
+        <a href="tel:09xxxxxxx" class="btn-cta">GỌI NGAY ĐẶT GAS: 09XX XXX XXX</a>
+    </div>
+</section>
+
+<section id="services">
+    <div class="container">
+        <h2 style="text-align: center; margin-bottom: 40px; color: var(--primary-color);">VÌ SAO CHỌN GAS CỐ ĐÔ HUẾ?</h2>
+        <div class="services-grid">
+
+            <div class="service-item">
+                <div class="icon">🛡️</div>
+                <h3>An Toàn Tuyệt Đối</h3>
+                <p>Bình gas chính hãng, có niêm phong, được kiểm định nghiêm ngặt. Bảo hiểm cháy nổ.</p>
             </div>
 
-            <div class="bt_lg">
-                <button class="contact-btn"><a href="contact.html">Contact</a></button>
-                <div class="language">
-                    <i class="fa-solid fa-globe"></i>
-                </div>
+            <div class="service-item">
+                <div class="icon">🛵</div>
+                <h3>Giao Hàng Siêu Tốc</h3>
+                <p>Cam kết giao hàng trong vòng 15-20 phút trong nội thành Huế.</p>
             </div>
 
-
-            <div class="menu-toggle">
-                <i class="fa-solid fa-bars"></i>
-            </div>
-        </div>
-    </nav>
-    <!-- Overlay mờ -->
-    <div class="mobile-menu-overlay"></div>
-    <!-- Off-canvas mobile menu -->
-    <div class="mobile-menu">
-        <div class="mobile-menu-header">
-            <span class="close-mobile-menu">&times;</span>
-        </div>
-        <div class="mobile-menu-links">
-            <a href="about_us.html">About Us</a>
-
-            <div class="mobile-dropdown">
-                <div class="mobile-dropdown-toggle">Services <i class="fa-solid fa-chevron-down"></i></div>
-                <div class="mobile-dropdown-menu">
-                    <a href="service.html">Services 1</a>
-                    <a href="service_2.html">Services 2</a>
-                    <a href="service_3.html">Services 3</a>
-                </div>
+            <div class="service-item">
+                <div class="icon">⚖️</div>
+                <h3>Đủ Trọng Lượng</h3>
+                <p>Luôn cân tại chỗ, đảm bảo 100% trọng lượng và chất lượng gas theo tiêu chuẩn.</p>
             </div>
 
-            <div class="mobile-dropdown">
-                <div class="mobile-dropdown-toggle">Solutions <i class="fa-solid fa-chevron-down"></i></div>
-                <div class="mobile-dropdown-menu">
-                    <a href="solution.html">Solutions 1</a>
-                    <a href="solution_2.html">Solutions 2</a>
-                    <a href="solution_3.html">Solutions 3</a>
-                </div>
-            </div>
-
-             <a href="partnerships.html">Partnerships</a>
-            <a href="community.html">Community</a>
-            <button class="contact-btn"><a href="contact.html">Contact</a></button>
-            <!-- <a href="contact.html">Contact</a> -->
         </div>
     </div>
+</section>
 
-    <section class="hero">
-        <div class="hero_banner">
-            <div class="banner">
-                <img src="img/banner.png" alt="banner">
-            </div>
-            <div class="banner">
-                <img src="img/banner.png" alt="banner">
-            </div>
-            <div class="banner">
-                <img src="img/banner.png" alt="banner">
-            </div>
-            <div class="banner">
-                <img src="img/banner.png" alt="banner">
-            </div>
-        </div>
-    </section>
-
-    <section class="services" id="services">
-        <div class="container">
-            <h2 class="section-title">Our Services</h2>
-            <p class="pra">
-                Empowering Industrial Growth Through Smart Digital Solutions
-            </p>
-            <div class="services-grid">
-                <div class="service-card">
-                    <h3>Application Software Development</h3>
-                    <p>Custom software solutions designed for your specific needs</p>
-                    <a href="#" class="learn-more" style="gap: 8px;"><span class="arrow"><i
-                                class="fa-solid fa-arrow-right"></i></span></a>
-                </div>
-                <div class="service-card">
-                    <h3>Software Testing Services</h3>
-                    <p>Comprehensive testing to ensure quality and reliability</p>
-                    <a href="#" class="learn-more" style="gap: 8px;"><span class="arrow"><i
-                                class="fa-solid fa-arrow-right"></i></span></a>
-                </div>
-                <div class="service-card">
-                    <h3>Digital Transformation</h3>
-                    <p>Modernize your business with cutting-edge technology</p>
-                    <a href="#" class="learn-more" style="gap: 8px;"><span class="arrow"><i
-                                class="fa-solid fa-arrow-right"></i></span></a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="solutions" id="solutions">
-        <div class="container">
-            <h2 class="section-title">Our Solutions</h2>
-            <p class="pra">
-                Built for industry. Designed to scale. Powered by innovation
-            </p>
-            <div class="services-grid">
-                <div class="service-card">
-                    <h3>Enterprise Building Management</h3>
-                    <p>Smart solutions for modern building management</p>
-                    <a href="#" class="learn-more" style="gap: 8px;"><span class="arrow"><i
-                                class="fa-solid fa-arrow-right"></i></span></a>
-                </div>
-                <div class="service-card">
-                    <h3>Industrial IoT Solutions</h3>
-                    <p>Connected solutions for industrial automation</p>
-                    <a href="#" class="learn-more" style="gap: 8px;"><span class="arrow"><i
-                                class="fa-solid fa-arrow-right"></i></span></a>
-                </div>
-                <div class="service-card">
-                    <h3>AI Image &amp; Video Processing</h3>
-                    <p>Advanced AI-powered visual analysis tools</p>
-                    <a href="#" class="learn-more" style="gap: 8px;"><span class="arrow"><i
-                                class="fa-solid fa-arrow-right"></i></span></a>
-                </div>
-            </div>
-        </div>
-    </section>
+<section id="contact" style="padding-top: 50px;">
+    <div class="container">
+        <h2 style="text-align: center; margin-bottom: 20px; color: var(--primary-color);">LIÊN HỆ ĐẶT GAS</h2>
+        <p style="text-align: center; font-size: 1.2em;">Hotline phục vụ 24/7: <span style="color: var(--secondary-color); font-weight: 700;">09XX XXX XXX</span></p>
+    </div>
+</section>
 
 
-    <section class="tech-stack">
-        <div class="container">
-            <h2 class="section-title">Our Tech Capabilities</h2>
-            <p style="color: #999; margin-bottom: 32px;">At ABIM Software, we craft software solutions tailored to each
-                client's unique needs — that’s why our developers are well-versed in a broad spectrum of technology
-                stacks.</p>
-        </div>
-        <div class="tech-slider">
-            <div class="tech-grid">
-                <div class="tech-item"><i class="fa-solid fa-circle"></i> React</div>
-                <div class="tech-item"><i class="fa-solid fa-circle"></i> Node.js</div>
-                <div class="tech-item"><i class="fa-solid fa-circle"></i> Python</div>
-                <div class="tech-item"><i class="fa-solid fa-circle"></i> TypeScript</div>
-                <div class="tech-item"><i class="fa-solid fa-circle"></i> AWS</div>
-                <div class="tech-item"><i class="fa-solid fa-circle"></i> Docker</div>
-                <div class="tech-item"><i class="fa-solid fa-circle"></i> Kubernetes</div>
-                <div class="tech-item"><i class="fa-solid fa-circle"></i> MongoDB</div>
-                <div class="tech-item"><i class="fa-solid fa-circle"></i> PostgreSQL</div>
-                <div class="tech-item"><i class="fa-solid fa-circle"></i> Redis</div>
-                <div class="tech-item"><i class="fa-solid fa-circle"></i> GraphQL</div>
-                <div class="tech-item"><i class="fa-solid fa-circle"></i> REST API</div>
-
-                <div class="tech-item"><i class="fa-solid fa-circle"></i> React</div>
-                <div class="tech-item"><i class="fa-solid fa-circle"></i> Node.js</div>
-                <div class="tech-item"><i class="fa-solid fa-circle"></i> Python</div>
-                <div class="tech-item"><i class="fa-solid fa-circle"></i> TypeScript</div>
-                <div class="tech-item"><i class="fa-solid fa-circle"></i> AWS</div>
-                <div class="tech-item"><i class="fa-solid fa-circle"></i> Docker</div>
-                <div class="tech-item"><i class="fa-solid fa-circle"></i> Kubernetes</div>
-                <div class="tech-item"><i class="fa-solid fa-circle"></i> MongoDB</div>
-                <div class="tech-item"><i class="fa-solid fa-circle"></i> PostgreSQL</div>
-                <div class="tech-item"><i class="fa-solid fa-circle"></i> Redis</div>
-                <div class="tech-item"><i class="fa-solid fa-circle"></i> GraphQL</div>
-                <div class="tech-item"><i class="fa-solid fa-circle"></i> REST API</div>
-            </div>
-        </div>
-    </section>
-
-    <section class="testimonial-section">
-        <h2 class="section-title">Customers' Voice</h2>
-        <p class="section-subtitle">
-            Real feedback. Trusted experiences. Hear how we’ve helped businesses like yours grow and succeed.
-        </p>
-
-        <div class="testimonial-slider">
-            <div class="testimonial-card">
-                <img src="https://i.pravatar.cc/100?img=1" class="avatar" />
-                <h3 class="name">James Pattinson</h3>
-                <p class="role">Procurement Head, Manufacturing Company</p>
-                <div class="stars">★★★★★</div>
-                <p class="quote">“Thanks to ABIM, we digitized our entire purchasing process and reduced sourcing time
-                    by 40%.”</p>
-            </div>
-
-            <div class="testimonial-card">
-                <img src="https://i.pravatar.cc/100?img=2" class="avatar" />
-                <h3 class="name">James Pattinson</h3>
-                <p class="role">Supply Chain Manager</p>
-                <div class="stars">★★★★★</div>
-                <p class="quote">“Their e-bidding platform saved us hundreds of hours in manual comparisons.”</p>
-            </div>
-
-            <div class="testimonial-card">
-                <img src="https://i.pravatar.cc/100?img=2" class="avatar" />
-                <h3 class="name">James Pattinson</h3>
-                <p class="role">Supply Chain Manager</p>
-                <div class="stars">★★★★★</div>
-                <p class="quote">“Their e-bidding platform saved us hundreds of hours in manual comparisons.”</p>
-            </div>
-
-            <div class="testimonial-card">
-                <img src="https://i.pravatar.cc/100?img=2" class="avatar" />
-                <h3 class="name">James Pattinson</h3>
-                <p class="role">Supply Chain Manager</p>
-                <div class="stars">★★★★★</div>
-                <p class="quote">“Their e-bidding platform saved us hundreds of hours in manual comparisons.”</p>
-            </div>
-            <!-- Bạn có thể thêm nhiều thẻ nữa -->
-        </div>
-    </section>
-
-    <section class="about" id="about">
-        <div class="container">
-            <div class="about-grid">
-                <div class="about-content">
-                    <h2 class="section-title">About Us</h2>
-                    <p>ABIM is a Vietnam-based technology company focused on software development and system integration
-                        for industrial businesses.</p>
-                    <p>We combine local insight with global standards to help factories and enterprises go digital.</p>
-                    <button class="contact-btn">Read Full About Us <i class="fa-solid fa-arrow-right"></i></button>
-                </div>
-                <div class="anh_left">
-                    <img src="img/anh_nha.jpg" alt="anh">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="client">
-        <div class="container">
-            <h2 class="section-title">Our clients</h2>
-            <div class="client-grid">
-
-                <div class="client-item">
-                    <img src="img/Logo-Yody.webp" alt="logo">
-                </div>
-                <div class="client-item">
-                    <img src="img/Logo-Yody.webp" alt="logo">
-                </div>
-                <div class="client-item">
-                    <img src="img/Logo-Yody.webp" alt="logo">
-                </div>
-                <div class="client-item">
-                    <img src="img/Logo-Yody.webp" alt="logo">
-                </div>
-                <div class="client-item">
-                    <img src="img/Logo-Yody.webp" alt="logo">
-                </div>
-                <div class="client-item">
-                    <img src="img/Logo-Yody.webp" alt="logo">
-                </div>
-
-
-            </div>
+<footer>
+    <div class="container footer-content">
+        <div class="contact-info">
+            <h3>GAS CỐ ĐÔ HUẾ</h3>
+            <p>Địa chỉ: [Địa chỉ văn phòng / kho gas chính của bạn]</p>
+            <p>Email: hotro@gascodohue.vn</p>
+            <p>© 2025 Gas Cố Đô Huế. All rights reserved.</p>
         </div>
 
-    </section>
-
-    <section class="address">
-        <div class="container">
-            <div class="contact-bar">
-                <div class="contact-info">
-                    <div class="item">
-                        <i class="fa-solid fa-phone"></i>
-                        <div>
-                            <div class="title">0123456789</div>
-                            <div class="desc">Hotline 24/7</div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <i class="fa-solid fa-envelope"></i>
-                        <div>
-                            <div class="title">support@mail.com</div>
-                            <div class="desc">Free consult</div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <i class="fa-solid fa-location-dot"></i>
-                        <div>
-                            <div class="title">De La Thanh, O Cho Dua</div>
-                            <div class="desc">Dong Da, Ha Noi</div>
-                        </div>
-                    </div>
-                    <a href="#" class="contact-button">
-                        GET IN TOUCH <i class="fa-solid fa-chevron-right"></i>
-                    </a>
-                </div>
+        <div class="zalo-section">
+            <h3>KẾT NỐI VỚI OA</h3>
+            <p>Quét mã Zalo OA để nhận ưu đãi và tích điểm:</p>
+            <div class="qr-placeholder">
+                [Mã QR Zalo OA]
             </div>
+            <p style="margin-top: 10px; font-size: 0.9em; font-style: italic;">Sử dụng Mã QR này để kiểm tra Webhook sau khi thiết lập xong!</p>
         </div>
-    </section>
+    </div>
+</footer>
 
-
-    <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <a href="#" class="logo">
-                        <img src="img/logo.png" alt="">
-                    </a>
-                    <p style="color: #000; margin: 24px 0;">Leading software solutions provider for industrial
-                        excellence</p>
-                    <div class="social-links">
-                        <a href="#" class="social-link">
-                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-                                <path
-                                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z">
-                                </path>
-                            </svg>
-                        </a>
-                        <a href="#" class="social-link">
-                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-                                <path
-                                    d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z">
-                                </path>
-                            </svg>
-                        </a>
-                        <a href="#" class="social-link">
-                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-                                <path
-                                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z">
-                                </path>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-                <div class="footer-col">
-                    <h3>Pages</h3>
-                    <ul>
-                        <li><a href="#"><i class="fa-solid fa-chevron-right"></i>Home</a></li>
-                        <li><a href="#about"><i class="fa-solid fa-chevron-right"></i>About Us</a></li>
-                        <li><a href="#services"><i class="fa-solid fa-chevron-right"></i>Services</a></li>
-                        <li><a href="#contact"><i class="fa-solid fa-chevron-right"></i>Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h3>Services</h3>
-                    <ul>
-                        <li><a href="#"><i class="fa-solid fa-chevron-right"></i>Software Development</a></li>
-                        <li><a href="#"><i class="fa-solid fa-chevron-right"></i>Testing Services</a></li>
-                        <li><a href="#"><i class="fa-solid fa-chevron-right"></i>Digital Transformation</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h3>Contact</h3>
-                    <ul>
-                        <li><a href="#"><i class="fa-solid fa-chevron-right"></i>Software Development</a></li>
-                        <li><a href="#"><i class="fa-solid fa-chevron-right"></i>Testing Services</a></li>
-                        <li><a href="#"><i class="fa-solid fa-chevron-right"></i>Digital Transformation</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="copyright">
-                Copyright 2024 © ABIM Software. All rights reserved.
-            </div>
-        </div>
-    </footer>
-
-    <iframe src="https://codesandbox.io/p/devtool/inline-preview/rskgsf-8000"
-        style="visibility: hidden; position: fixed; left: -1e+09px;"></iframe>
-
-
-
+<script>
+    $(document).ready(function(){
+        // Thêm hiệu ứng cuộn mượt khi click vào link trong navbar
+        $("nav a").on('click', function(event) {
+            if (this.hash !== "") {
+                event.preventDefault();
+                var hash = this.hash;
+                $('html, body').animate({
+                    scrollTop: $(hash).offset().top - 70 // - 70 để trừ đi chiều cao header
+                }, 800);
+            }
+        });
+    });
+</script>
 </body>
-
 </html>
